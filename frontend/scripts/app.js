@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     });
 });
 
-// Función para cargar tareas desde el backend
+//función para cargar tareas desde el backend
 async function cargarTareas(){
     try {
         const respuesta = await fetch(`${API_URL}/tareas`,{

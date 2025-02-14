@@ -52,10 +52,10 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ mensaje: "Contraseña incorrecta" });
         }
 
-        // Crear token JWT
+        //crear token JWT
         const token = jwt.sign({ id: usuario._id, rol: usuario.rol }, "secreto", { expiresIn: "1h" });
 
-        console.log("✅ Token generado:", token); // 🔍 Verificar el token en la consola
+        console.log("Token generado:", token); //verificar el token en la consola
 
         res.json({ mensaje: "Login exitoso", token });
     } catch (error) {
@@ -69,7 +69,7 @@ const autenticarUsuario = (req, res, next) => {
     let token = req.header("Authorization");
 
     if (!token) {
-        console.log("❌ No se proporcionó un token.");
+        console.log("No se proporcionó un token.");
         return res.status(401).json({ mensaje: "Acceso denegado, token no proporcionado" });
     }
 
@@ -77,12 +77,12 @@ const autenticarUsuario = (req, res, next) => {
         token = token.replace("Bearer ", "");
         console.log("🔍 Token recibido:", token);
 
-        const verificado = jwt.verify(token, "secreto"); // Asegurar que la clave es la correcta
+        const verificado = jwt.verify(token, "secreto"); //asegurar que la clave es la correcta
         req.usuario = verificado;
-        console.log("✅ Token verificado:", verificado);
+        console.log("Token verificado:", verificado);
         next();
     } catch (error) {
-        console.log("❌ Token inválido o expirado:", error.message);
+        console.log("Token inválido o expirado:", error.message);
         return res.status(401).json({ mensaje: "Token inválido o expirado" });
     }
 };
@@ -154,7 +154,6 @@ const movimientosPermitidos = {
 //actualizar la columna de una tarea con restricciones
 router.put("/tareas/:id", autenticarUsuario, async (req, res)=>{
     const {columna}=req.body;
-
     try{
         let tarea;
 
