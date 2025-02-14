@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tablero Kanban</h1>
+        <button id="cerrar-sesion">Cerrar Sesión</button>
+    </header>
+
+    <main class="tablero">
+        <section class="columna" id="idea">
+            <h2>Idea</h2>
+            <div class="contenedor-tareas" id="lista-idea"></div>
+            <button class="nueva-tarea" data-columna="idea">+ Nueva Tarea</button>
+        </section>
+
+        <section class="columna" id="todo">
+            <h2>To Do</h2>
+            <div class="contenedor-tareas" id="lista-todo"></div>
+            <button class="nueva-tarea" data-columna="todo">+ Nueva Tarea</button>
+        </section>
+        <div id="modal-colaboradores" class="modal">
+            <div class="modal-contenido">
+                <h2>Selecciona los colaboradores</h2>
+                <div id="lista-usuarios"></div>
+                <button id="confirmar-colaboradores">Confirmar</button>
+                <button id="cerrar-modal">Cerrar</button>
+            </div>
+    </div>
+        <section class="columna" id="doing">
+            <h2>Doing</h2>
+            <div class="contenedor-tareas" id="lista-doing"></div>
+            <button class="nueva-tarea" data-columna="doing">+ Nueva Tarea</button>
+        </section>
+        <section class="columna" id="done">
+            <h2>Done</h2>
+            <div class="contenedor-tareas" id="lista-done"></div>
+            <button class="nueva-tarea" data-columna="done">+ Nueva Tarea</button>
+        </section>
+        <button id="cerrar-sesion">Cerrar Sesión</button>
+    </main>
+
+    <script src="../scripts/app.js"></script>
+</body>
+</html>
