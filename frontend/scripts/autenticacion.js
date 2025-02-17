@@ -31,15 +31,10 @@ document.getElementById("form-login").addEventListener("submit", async (e)=>{
             errorMensaje.textContent = datos.mensaje || "Error en el inicio de sesión.";
             return;
         }
-
-        if (!datos.token){
-            errorMensaje.textContent = "No se recibió un token. Verifica el backend.";
-            return;
-        }
-
-        //guardar token en localStorage
-        localStorage.setItem("token", datos.token);
-        console.log("Token guardado:", localStorage.getItem("token")); //verificar que el token se guarda
+        
+        //guardar usuario en localStorage
+        localStorage.setItem("usuario", JSON.stringify(datos.usuario));
+        console.log("Usuario guardado:", localStorage.getItem("usuario")); //verificar que el usuario se guarda
 
         //redirigir al tablero
         window.location.href = "tablero.html";
