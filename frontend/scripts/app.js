@@ -88,12 +88,12 @@ function agregarTarea(columna, texto, id, descripcion, usuariosAsignados){
     tarea.id = id;
 
     const descripcionElemento = document.createElement("p");
-    descripcionElemento.textContent = descripcion ? `📌 ${descripcion}` : "📌 Sin descripción";
+    descripcionElemento.textContent = descripcion ? `${descripcion}` : "Sin descripción";
     tarea.appendChild(descripcionElemento);
 
     if (usuariosAsignados.length > 0){
         const colaboradoresElemento = document.createElement("p");
-        colaboradoresElemento.textContent = `👥 Colaboradores: ${usuariosAsignados.join(", ")}`;
+        colaboradoresElemento.textContent = `Colaboradores: ${usuariosAsignados.join(", ")}`;
         tarea.appendChild(colaboradoresElemento);
     }
 
@@ -176,7 +176,6 @@ async function eliminarTarea(id){
         const respuesta = await fetch(`${API_URL}/tareas/${id}`,{
             method: "DELETE",
         });
-
         if (!respuesta.ok){
             console.error("Error al eliminar tarea:", respuesta.statusText);
         }

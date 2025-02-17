@@ -5,7 +5,7 @@ const tareaSchema = new mongoose.Schema({
     descripcion: { type: String, default: "" }, 
     columna: { type: String, enum: ["idea", "todo", "doing", "done"], required: true },
     propietario: { type: mongoose.Schema.Types.ObjectId, ref: "Usuario", required: true },
-    usuariosAsignados: [{ type: mongoose.Schema.Types.ObjectId, ref: "Usuario" }] // 🔥 Usuarios con acceso solo de lectura
+    usuariosAsignados: [{ type: mongoose.Schema.Types.ObjectId, ref: "Usuario" }] 
 });
 
 const Tarea = mongoose.model("Tarea", tareaSchema);
